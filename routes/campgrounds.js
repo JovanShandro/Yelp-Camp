@@ -24,14 +24,14 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
   const desc = req.body.description;
   const author = {
     id: req.user._id,
-    username: req.user.username,
+    username: req.user.username
   };
   const newCampground = {
     name: name,
     price: price,
     image: image,
     description: desc,
-    author: author,
+    author: author
   };
   // Put a campground in the DB
   Campground.create(newCampground, (err, campground) => {
@@ -97,7 +97,7 @@ router.delete("/:id", middleware.checkCampgroundOwnership, (req, res) => {
     if (err) {
       console.log(err);
     }
-    Comment.deleteMany({ _id: { $in: campgroundRemoved.comments } }, (err) => {
+    Comment.deleteMany({ _id: { $in: campgroundRemoved.comments } }, err => {
       if (err) {
         console.log(err);
       }

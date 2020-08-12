@@ -55,7 +55,7 @@ router.get(
       } else {
         res.render("comments/edit", {
           campground_id: req.params.id,
-          comment: foundCom,
+          comment: foundCom
         });
       }
     });
@@ -79,7 +79,7 @@ router.put("/:comment_id", middleware.checkCommentOwnership, (req, res) => {
 
 // Comment delete route
 router.delete("/:comment_id", middleware.checkCommentOwnership, (req, res) => {
-  Comment.findByIdAndRemove(req.params.comment_id, (err) => {
+  Comment.findByIdAndRemove(req.params.comment_id, err => {
     if (err) {
       res.redirect("back");
     } else {

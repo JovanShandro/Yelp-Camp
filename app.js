@@ -23,12 +23,12 @@ mongoose
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
-      useFindAndModify: false,
+      useFindAndModify: false
     },
 
     () => console.log("Connected to Database")
   )
-  .catch((err) => console.log("Error connecting to database: ", err));
+  .catch(err => console.log("Error connecting to database: ", err));
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
@@ -41,7 +41,7 @@ app.use(
   require("express-session")({
     secret: "Once upon a time!",
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: false
   })
 );
 
@@ -55,7 +55,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // Set Global variables
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
   res.locals.error = req.flash("error");
   res.locals.success = req.flash("success");
@@ -67,6 +67,6 @@ app.use(indexRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds", campgroundRoutes);
 
-app.listen(process.env.PORT || 3000, function () {
+app.listen(process.env.PORT || 3000, function() {
   console.log("App started!");
 });
