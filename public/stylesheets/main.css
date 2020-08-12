@@ -1,14 +1,30 @@
 .thumbnail img {
-    width: 100%;
+  width: 100%;
 }
-.thumbnail{
-    padding: 0;
-}
-
-.thumbnail .caption-full{
-    padding: 9px;
+.thumbnail {
+  padding: 0;
 }
 
-.delete-form{
-    display: inline;
+.thumbnail .caption-full {
+  padding: 9px;
+}
+
+.delete-form {
+  display: inline;
+}
+
+.form-input {
+  max-width: 250px;
+}
+
+.mt-s {
+  margin-top: 15px;
+}
+
+.mb-m {
+  margin-bottom: 30px;
+}
+
+.center {
+  margin: 0 auto;
 }
